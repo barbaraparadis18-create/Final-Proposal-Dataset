@@ -736,21 +736,115 @@ Average_Rating  <- c(4.48,
 
 proposals_dataset <- data.frame(Title, Author, Genre, Publication_Month, Publication_Year, Number_of_Ratings, Average_Rating)
 proposals_dataset <- proposals_dataset[order(proposals_dataset$Title), ]
-
-head(proposals_dataset)
 ```
 
-    ##                                   Title                  Author       Genre
-    ## 18                                 1984           George Orwell   Dystopian
-    ## 69                    A Little Princess Frances Hodgson Burnett  Children's
-    ## 94                     A Man Called Ove         Fredrik Backman     Fantasy
-    ## 2  A Short History of Nearly Everything             Bill Bryson  Nonfiction
-    ## 71     Alice's Adventures in Wonderland           Lewis Carroll Young Adult
-    ## 92                        American Gods             Neil Gaiman     Fantasy
-    ##    Publication_Month Publication_Year Number_of_Ratings Average_Rating
-    ## 18              June             1949           4800000           4.19
-    ## 69         September             1905            250000           4.14
-    ## 94            August             2012            500000           4.36
-    ## 2                May             2003            316671           4.19
-    ## 71          November             1865            600000           4.07
-    ## 92             March             2001            700000           4.11
+``` r
+knitr::kable(proposals_dataset)
+```
+
+|  | Title | Author | Genre | Publication_Month | Publication_Year | Number_of_Ratings | Average_Rating |
+|:---|:---|:---|:---|:---|---:|---:|---:|
+| 18 | 1984 | George Orwell | Dystopian | June | 1949 | 4800000 | 4.19 |
+| 69 | A Little Princess | Frances Hodgson Burnett | Children’s | September | 1905 | 250000 | 4.14 |
+| 94 | A Man Called Ove | Fredrik Backman | Fantasy | August | 2012 | 500000 | 4.36 |
+| 2 | A Short History of Nearly Everything | Bill Bryson | Nonfiction | May | 2003 | 316671 | 4.19 |
+| 71 | Alice’s Adventures in Wonderland | Lewis Carroll | Young Adult | November | 1865 | 600000 | 4.07 |
+| 92 | American Gods | Neil Gaiman | Fantasy | March | 2001 | 700000 | 4.11 |
+| 23 | Animal Farm | George Orwell | Dystopian | August | 1945 | 2200000 | 3.98 |
+| 57 | Anna Karenina | Leo Tolstoy | Classic | March | 1878 | 500000 | 4.02 |
+| 9 | Annals of the Former World | John McPhee | Nonfiction | June | 1998 | 1698 | 3.91 |
+| 41 | Becoming | Michelle Obama | Memoir | November | 2018 | 650000 | 4.47 |
+| 47 | Beloved | Toni Morrison | Historical Fiction | September | 1987 | 600000 | 4.08 |
+| 51 | Brave New World | Aldous Huxley | Dystopian | April | 1932 | 700000 | 3.99 |
+| 97 | Circe | Madeline Miller | Romance | April | 2018 | 350000 | 4.25 |
+| 87 | Cloud Atlas | David Mitchell | Fantasy | August | 2004 | 400000 | 4.01 |
+| 56 | Crime and Punishment | Fyodor Dostoevsky | Classic | January | 1866 | 600000 | 4.33 |
+| 76 | Divergent | Veronica Roth | Young Adult | May | 2011 | 650000 | 4.14 |
+| 61 | Dracula | Bram Stoker | Science Fiction | May | 1897 | 500000 | 4.00 |
+| 40 | Educated | Tara Westover | Memoir | August | 2018 | 700000 | 4.47 |
+| 80 | Eragon | Christopher Paolini | Fantasy | August | 2002 | 350000 | 4.30 |
+| 22 | Fahrenheit 451 | Ray Bradbury | Dystopian | October | 1953 | 2300000 | 4.13 |
+| 62 | Frankenstein | Mary Shelley | Science Fiction | January | 1818 | 800000 | 3.84 |
+| 43 | Gone Girl | Gillian Flynn | Mystery | May | 2012 | 1200000 | 4.06 |
+| 83 | Good Omens | Neil Gaiman & Terry Pratchett | Fantasy | May | 1990 | 450000 | 4.00 |
+| 13 | Harry Potter and the Chamber of Secrets | J.K. Rowling | Fantasy | July | 1998 | 2878196 | 4.43 |
+| 15 | Harry Potter and the Goblet of Fire | J.K. Rowling | Fantasy | July | 2000 | 2725467 | 4.56 |
+| 11 | Harry Potter and the Half-Blood Prince | J.K. Rowling | Fantasy | June | 2005 | 2553909 | 4.57 |
+| 12 | Harry Potter and the Order of the Phoenix | J.K. Rowling | Fantasy | June | 2003 | 2631427 | 4.50 |
+| 14 | Harry Potter and the Prisoner of Azkaban | J.K. Rowling | Fantasy | July | 1999 | 2972519 | 4.57 |
+| 1 | Harry Potter and the Sorcerer’s Stone | J.K. Rowling | Fantasy | June | 1997 | 7434783 | 4.48 |
+| 5 | Hatcher | Gary Paulsen | Young Adult | September | 1987 | 322595 | 3.74 |
+| 28 | Jane Eyre | Charlotte Brontë | Classic | October | 1847 | 1700000 | 4.14 |
+| 59 | Les Misérables | Victor Hugo | Gothic | June | 1862 | 350000 | 4.23 |
+| 33 | Life of Pi | Yann Martel | Historical Fiction | May | 2001 | 1200000 | 3.92 |
+| 99 | Little Fires Everywhere | Celeste Ng | Fantasy | May | 2017 | 300000 | 4.05 |
+| 27 | Little Women | Louisa May Alcott | Historical Fiction | September | 1868 | 1800000 | 4.12 |
+| 52 | Lord of the Flies | William Golding | Classic | October | 1954 | 800000 | 3.92 |
+| 104 | Mistborn: The Final Empire | Brandon Sanderson | Fantasy | July | 2006 | 450000 | 4.46 |
+| 91 | Neverwhere | Neil Gaiman | Fantasy | September | 1996 | 400000 | 4.17 |
+| 98 | Normal People | Sally Rooney | Historical Fiction | August | 2018 | 300000 | 3.87 |
+| 3 | Notes from a Small Island | Bill Bryson | Travel | September | 1995 | 98212 | 3.91 |
+| 49 | Of Mice and Men | John Steinbeck | Classic | December | 1937 | 600000 | 3.88 |
+| 78 | Percy Jackson & the Olympians | Rick Riordan | Fantasy | June | 2005 | 450000 | 4.26 |
+| 73 | Peter Pan | J.M. Barrie | Young Adult | December | 1904 | 300000 | 4.22 |
+| 19 | Pride and Prejudice | Jane Austen | Classic | January | 1813 | 4200000 | 4.28 |
+| 102 | Red Rising | Pierce Brown | Fantasy | January | 2014 | 300000 | 4.26 |
+| 10 | Rising from the Plains | John McPhee | Nonfiction | July | 1998 | 3638 | 4.35 |
+| 86 | Station Eleven | Emily St. John Mandel | Fantasy | May | 2014 | 350000 | 3.92 |
+| 65 | The Adventures of Huckleberry Finn | Mark Twain | Classic | December | 1884 | 700000 | 3.84 |
+| 66 | The Adventures of Tom Sawyer | Mark Twain | Children’s | November | 1876 | 500000 | 3.91 |
+| 25 | The Alchemist | Paulo Coelho | Literary Fiction | May | 1988 | 2000000 | 3.91 |
+| 89 | The Book of Life | Deborah Harkness | Fantasy | June | 2014 | 250000 | 4.10 |
+| 24 | The Book Thief | Markus Zusak | Historical Fiction | March | 2005 | 2100000 | 4.37 |
+| 55 | The Brothers Karamazov | Fyodor Dostoevsky | Classic | November | 1880 | 500000 | 4.00 |
+| 20 | The Catcher in the Rye | J.D. Salinger | Classic | July | 1951 | 3400000 | 3.80 |
+| 6 | The Changeling Sea | Patricia A. McKillip | Fantasy | October | 1988 | 5023 | 4.07 |
+| 29 | The Chronicles of Narnia | C.S. Lewis | Fantasy | October | 1950 | 1600000 | 4.25 |
+| 46 | The Color Purple | Alice Walker | Historical Fiction | June | 1982 | 700000 | 4.21 |
+| 58 | The Count of Monte Cristo | Alexandre Dumas | Classic | August | 1844 | 400000 | 4.22 |
+| 34 | The Da Vinci Code | Dan Brown | Fantasy | April | 2003 | 1100000 | 4.21 |
+| 31 | The Fault in Our Stars | John Green | Young Adult | January | 2012 | 1400000 | 4.15 |
+| 42 | The Girl on the Train | Paula Hawkins | Mystery | January | 2015 | 900000 | 3.96 |
+| 75 | The Giver | Lois Lowry | Young Adult | April | 1993 | 700000 | 4.12 |
+| 81 | The Golden Compass | Philip Pullman | Fantasy | October | 1995 | 300000 | 4.02 |
+| 88 | The Goldfinch | Donna Tartt | Fantasy | February | 2013 | 500000 | 3.95 |
+| 48 | The Grapes of Wrath | John Steinbeck | Historical Fiction | April | 1939 | 800000 | 3.96 |
+| 16 | The Great Gatsby | F. Scott Fitzgerald | Classic | April | 1925 | 5000000 | 3.93 |
+| 44 | The Handmaid’s Tale | Margaret Atwood | Dystopian | June | 1985 | 900000 | 4.17 |
+| 32 | The Help | Kathryn Stockett | Young Adult | February | 2009 | 1300000 | 4.47 |
+| 84 | The Hitchhiker’s Guide to the Galaxy | Douglas Adams | Fantasy | April | 1979 | 1500000 | 4.22 |
+| 21 | The Hobbit | J.R.R. Tolkien | Fantasy | September | 1937 | 2500000 | 4.27 |
+| 93 | The House in the Cerulean Sea | TJ Klune | Fantasy | March | 2020 | 200000 | 4.46 |
+| 30 | The Hunger Games | Suzanne Collins | Dystopian | September | 2008 | 1500000 | 4.33 |
+| 95 | The Invisible Life of Addie LaRue | V.E. Schwab | Romance | September | 2020 | 250000 | 4.16 |
+| 26 | The Kite Runner | Khaled Hosseini | Fiction | May | 2003 | 1900000 | 4.34 |
+| 7 | The Known World | Edward P. Jones | Historical Fiction | September | 2003 | 38299 | 3.81 |
+| 79 | The Lightning Thief | Rick Riordan | Fantasy | June | 2005 | 400000 | 4.28 |
+| 4 | The Lord of the Rings | J.R.R. Tolkien | Fantasy | October | 1955 | 586599 | 4.50 |
+| 77 | The Maze Runner | James Dashner | Fantasy | October | 2009 | 500000 | 4.03 |
+| 54 | The Metamorphosis | Franz Kafka | Classic | November | 1915 | 450000 | 4.01 |
+| 36 | The Midnight Library | Matt Haig | Fantasy | September | 2020 | 1200000 | 4.15 |
+| 103 | The Name of the Wind | Patrick Rothfuss | Fantasy | March | 2015 | 500000 | 4.52 |
+| 85 | The Night Circus | Erin Morgenstern | Fantasy | September | 2011 | 450000 | 4.03 |
+| 90 | The Ocean at the End of the Lane | Neil Gaiman | Fantasy | June | 2013 | 300000 | 4.09 |
+| 50 | The Old Man and the Sea | Ernest Hemingway | Classic | September | 1952 | 500000 | 3.98 |
+| 35 | The Picture of Dorian Gray | Oscar Wilde | Mystery | July | 1890 | 1000000 | 4.07 |
+| 101 | The Poppy War | R.F. Kuang | Science Fiction | April | 2018 | 150000 | 4.13 |
+| 82 | The Princess Bride | William Goldman | Fantasy | September | 1973 | 400000 | 4.26 |
+| 45 | The Road | Cormac McCarthy | Dystopian | September | 2006 | 650000 | 3.97 |
+| 67 | The Scarlet Letter | Nathaniel Hawthorne | Children’s | March | 1850 | 450000 | 3.93 |
+| 68 | The Secret Garden | Frances Hodgson Burnett | Children’s | September | 1911 | 300000 | 4.13 |
+| 37 | The Seven Husbands of Evelyn Hugo | Taylor Jenkins Reid | Romance | June | 2017 | 900000 | 4.37 |
+| 39 | The Silent Patient | Alex Michaelides | Mystery | January | 2019 | 850000 | 4.18 |
+| 96 | The Song of Achilles | Madeline Miller | Romance | August | 2011 | 400000 | 4.39 |
+| 53 | The Stranger | Albert Camus | Classic | November | 1942 | 550000 | 4.01 |
+| 60 | The Three Musketeers | Alexandre Dumas | Gothic | March | 1844 | 300000 | 4.21 |
+| 63 | The Time Machine | H.G. Wells | Classic | November | 1895 | 400000 | 3.90 |
+| 100 | The Vanishing Half | Brit Bennett | Science Fiction | June | 2020 | 200000 | 4.13 |
+| 64 | The War of the Worlds | H.G. Wells | Classic | July | 1898 | 350000 | 3.82 |
+| 70 | The Wind in the Willows | Kenneth Grahame | Children’s | June | 1908 | 350000 | 4.06 |
+| 74 | The Wonderful Wizard of Oz | L. Frank Baum | Young Adult | May | 1900 | 500000 | 4.00 |
+| 72 | Through the Looking-Glass | Lewis Carroll | Young Adult | January | 1871 | 300000 | 4.06 |
+| 17 | To Kill a Mockingbird | Harper Lee | Classic | July | 1960 | 5500000 | 4.26 |
+| 8 | Traders, Guns & Money: Knowns and Unknowns in the Dazzling World of Derivatives | Satyajit Das | Nonfiction | April | 2006 | 38298 | 3.83 |
+| 38 | Where the Crawdads Sing | Delia Owens | Romance | August | 2018 | 1000000 | 4.40 |
